@@ -21,9 +21,9 @@
  ...
  */
 
-(function() {
+(function(scope) {
 
-    var StrongPass = this.StrongPass = new Class({
+    var StrongPass = scope.StrongPass = new Class({
 
         Implements: [Options, Events],
 
@@ -32,6 +32,7 @@
             passIndex: 2, // Weak
 
             // output verdicts, colours and bar %
+            label: 'Password strength: ',
             verdicts: [
                 'Too Short',
                 'Very weak',
@@ -61,7 +62,7 @@
                 10,
                 15,
                 25,
-                35
+                45
             ],
             // styles
             passStrengthZen: 'div.pass-container',
@@ -109,7 +110,7 @@
 
             this.txtbox = new Element(o.passbarHintZen).inject(this.stbox)
 
-            this.stbox.inject((document.id(o.injectTarget) || this.element))
+            this.stbox.inject((document.id(o.injectTarget) || this.element), o.injectPlacement)
         },
 
         runPassword: function() {
@@ -138,7 +139,7 @@
             verdict = o.verdicts[index] || o.verdicts.getLast()
 
             if (o.render) {
-                this.txtbox.set("text", "Password strength: " + verdict)
+                this.txtbox.set("text", [o.label, verdict].join(''))
                 this.stdbar.setStyles({
                     width:o.width[index] || o.width.getLast(),
                     background:o.colors[index] || o.colors.getLast()
@@ -155,7 +156,7 @@
                 score: 1
             },
             /* alphaUpper */ {
-                re: /[a-z]/,
+                re: /[A-Z]/,
                 score: 5
             },
             /* mixture of upper and lowercase */ {
@@ -198,4 +199,4 @@
         }
     })
 
-}()); // change to any object / ns
+}(this)); // change to any object / ns

@@ -28,7 +28,7 @@
         Implements: [Options, Events],
 
         options: {
-            minChar: 4, // too short while less than this
+            minChar: 6, // too short while less than this
             passIndex: 2, // Weak
 
             // output verdicts, colours and bar %
@@ -64,6 +64,10 @@
                 25,
                 45
             ],
+
+            // when in banned list, verdict is:
+            bannedPass: 'Not allowed',
+
             // styles
             passStrengthZen: 'div.pass-container',
             passbarClassZen: 'div.pass-bar', // css controls
@@ -74,6 +78,51 @@
             injectTarget: null,
             injectPlacement: 'after'
         },
+
+        bannedPasswords: [
+            // see study here: http://smrt.io/JlNfrH
+            '123456',
+            '12345',
+            '123456789',
+            'password',
+            'iloveyou',
+            'princess',
+            'rockyou',
+            '1234567',
+            '12345678',
+            'abc123',
+            'nicole',
+            'daniel',
+            'babygirl',
+            'monkey',
+            'jessica',
+            'lovely',
+            'michael',
+            'ashley',
+            '654321',
+            'qwerty',
+            'password1',
+            'welcome',
+            'welcome1',
+            'password2',
+            'password01',
+            'password3',
+            'p@ssw0rd',
+            'passw0rd',
+            'password4',
+            'password123',
+            'summer09',
+            'password6',
+            'password7',
+            'password9',
+            'password8',
+            'welcome2',
+            'welcome01',
+            'winter12',
+            'spring2012',
+            'summer12',
+            'summer2012'
+        ],
 
         initialize: function(element, options) {
             this.setOptions(options)
@@ -121,22 +170,30 @@
                 s = Array.clone(o.scores),
                 verdict
 
-            if (range != -200) {
-                if (range < 0 && range > -199) {
-                    index = 0;
-                }
-                else {
-                    s.push(range);
-                    s.sort(function (a, b) {
-                        return a - b
-                    });
-                    index = s.indexOf(range) + 1;
-                }
-            } else {
-                range = 0
+            if (Array.indexOf(this.bannedPasswords, password.toLowerCase()) !== -1) {
+                range = 0;
+                this.fireEvent('banned', password);
+                verdict = o.bannedPass;
             }
+            else {
 
-            verdict = o.verdicts[index] || o.verdicts.getLast()
+                if (range != -200) {
+                    if (range < 0 && range > -199) {
+                        index = 0;
+                    }
+                    else {
+                        s.push(range);
+                        s.sort(function (a, b) {
+                            return a - b
+                        });
+                        index = s.indexOf(range) + 1;
+                    }
+                } else {
+                    range = 0
+                }
+
+                verdict = o.verdicts[index] || o.verdicts.getLast()
+            }
 
             if (o.render) {
                 this.txtbox.set("text", [o.label, verdict].join(''))
@@ -199,4 +256,5 @@
         }
     })
 
-}(this)); // change to any object / ns
+    // change to any object / ns
+}(this));

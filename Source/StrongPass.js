@@ -1,25 +1,25 @@
 /*
- ---
+---
 
- name: strong.pass.js
+name: StrongPass.js
 
- description: checks password strength of a string
+description: checks password strength of a string
 
- authors: Dimitar Christoff
+authors: Dimitar Christoff
 
- license: MIT-style license.
+license: MIT-style license.
 
- version: 1.02
+version: 1.02
 
- requires:
- - Core/String
- - Core/Element
- - Core/Class
+requires:
+- Core/String
+- Core/Element
+- Core/Class
 
- provides: StrongPass
+provides: StrongPass
 
- ...
- */
+...
+*/
 
 (function(scope) {
 

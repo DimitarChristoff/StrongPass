@@ -107,6 +107,7 @@ A series of tests and definitions dictate the total `scoring` of the string in t
 - `regex scoring` - the class has a static array of simple objects that looks like this:
 
 ```javascript
+
     checks: [
         /* alphaLower */ {
             re: /[a-z]/,
@@ -145,12 +146,10 @@ A series of tests and definitions dictate the total `scoring` of the string in t
 
 You can add / push to this array to add further changes or you can edit the regex or the scoring applied. A score can also be negative. For instance, we add `2` bonus points if the password has more than 1 letter so it's not just something like `aaaaaa` to make it pass. This is a 'positive' score that awards variety but you can easily reverse the check and the result of the regex to a penalising one by doing:
 
-```
     /* password of a single char sucks A LOT */ {
         re: /^(.)\1+$/,
         score: -20
     }
-```
 
 
 Tests

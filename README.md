@@ -1,19 +1,18 @@
 StrongPass.js
 ==============
 
-
 What does it do?
 ----------------
 
-Scoring on password strength. WIP as of commit date.
+A basic plugin that can do `scoring` of password strength as a user types within an input field.
 
-See it live in action on this jsfiddle [here](http://jsfiddle.net/dimitar/n8Dza/).
+See it live in action on this jsfiddle [here](http://jsfiddle.net/dimitar/n8Dza/) or [this one](http://jsfiddle.net/dimitar/nZn6A/).
 
 
 How to use
 ----------
 
-Get Mootools. Have a password field.
+Get MooTools (1.4.5 ideally). No -more required. Have a password field and some CSS.
 
 ```html
 <input type="password" id="foo" />
@@ -34,6 +33,8 @@ div.pass-hint {
 }
 ```
 
+Create your instance
+
 ```javascript
 new StrongPass("foo", {
     onReady: function() {
@@ -52,7 +53,7 @@ new StrongPass("foo", {
 
 ```
 
-Alternatively, you can just use it as a tool to check and feed back scores without output - so you can script your own.
+Alternatively, you can just use it as a tool to check and feed back scores without output - so you can script your own via the events instead.
 
 ```javascript
 var indicator = document.getElement('span.pwStrengthResult'),
@@ -65,7 +66,7 @@ var indicator = document.getElement('span.pwStrengthResult'),
         })
     }
 
-new StrongPass('password', {
+new StrongPass('foo', {
     bannedPass: 'Very weak (too common)',
     verdicts: [
         'Too Short',

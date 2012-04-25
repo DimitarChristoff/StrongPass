@@ -14,6 +14,7 @@ version: 1.02
 requires:
 - Core/String
 - Core/Element
+- Core/DOMEvent
 - Core/Class
 
 provides: StrongPass

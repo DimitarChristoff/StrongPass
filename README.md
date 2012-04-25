@@ -12,10 +12,12 @@ How to use
 Get MooTools (1.4.5 ideally). No -more required. Have a password field and some CSS.
 
 ```html
+
     <input type="password" id="foo" />
 ```
 
 ```css
+
     div.pass-container {
         height: 30px;
     }
@@ -27,12 +29,13 @@ Get MooTools (1.4.5 ideally). No -more required. Have a password field and some 
     div.pass-hint {
         font-family: arial;
         font-size: 11px;
-}
+    }
 ```
 
 Create your instance
 
 ```javascript
+
     new StrongPass("foo", {
         onReady: function() {
             console.log('you can begin typing');
@@ -52,6 +55,7 @@ Create your instance
 Alternatively, you can just use it as a tool to check and feed back scores without output - so you can script your own via the events instead.
 
 ```javascript
+
     var indicator = document.getElement('span.pwStrengthResult'),
         colourIndicate = function(level, label) {
             indicator.set({

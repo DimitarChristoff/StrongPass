@@ -1,9 +1,6 @@
 StrongPass.js
 ==============
 
-What does it do?
-----------------
-
 A basic plugin that can do `scoring` of password strength as a user types within an input field.
 
 See it live in action on this jsfiddle [here](http://jsfiddle.net/dimitar/n8Dza/) or [this one](http://jsfiddle.net/dimitar/nZn6A/).

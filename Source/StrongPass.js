@@ -179,14 +179,14 @@
             }
             else {
                 if (score < 0 && score > -199) {
-                    index = 0;
+                    index = 0
                 }
                 else {
                     s.push(score);
                     s.sort(function (a, b) {
                         return a - b
                     });
-                    index = s.indexOf(score) + 1;
+                    index = s.indexOf(score) + 1
                 }
 
                 verdict = o.verdicts[index] || o.verdicts.getLast()

@@ -139,6 +139,7 @@
                 keyup: this.runPassword.bind(this)
             })
 
+            return this
         },
 
         createBox: function() {
@@ -158,38 +159,34 @@
             }).inject(this.stbox)
 
             this.txtbox = new Element(o.passbarHintZen).inject(this.stbox)
-
             this.stbox.inject((document.id(o.injectTarget) || this.element), o.injectPlacement)
+
+            return this
         },
 
-        runPassword: function() {
-            var password = this.element.get('value'),
-                range = this.checkPassword(password),
+        runPassword: function(e, password) {
+            password = password || this.element.get('value')
+
+            var score = this.checkPassword(password),
                 index = 0,
                 o = this.options,
                 s = Array.clone(o.scores),
                 verdict
 
             if (Array.indexOf(this.bannedPasswords, password.toLowerCase()) !== -1) {
-                range = 0;
                 this.fireEvent('banned', password);
                 verdict = o.bannedPass;
             }
             else {
-
-                if (range != -200) {
-                    if (range < 0 && range > -199) {
-                        index = 0;
-                    }
-                    else {
-                        s.push(range);
-                        s.sort(function (a, b) {
-                            return a - b
-                        });
-                        index = s.indexOf(range) + 1;
-                    }
-                } else {
-                    range = 0
+                if (score < 0 && score > -199) {
+                    index = 0;
+                }
+                else {
+                    s.push(score);
+                    s.sort(function (a, b) {
+                        return a - b
+                    });
+                    index = s.indexOf(score) + 1;
                 }
 
                 verdict = o.verdicts[index] || o.verdicts.getLast()
@@ -198,13 +195,13 @@
             if (o.render) {
                 this.txtbox.set("text", [o.label, verdict].join(''))
                 this.stdbar.setStyles({
-                    width:o.width[index] || o.width.getLast(),
-                    background:o.colors[index] || o.colors.getLast()
+                    width: o.width[index] || o.width.getLast(),
+                    background: o.colors[index] || o.colors.getLast()
                 })
             }
 
             // events
-            this.fireEvent(['fail', 'pass'][+(this.passed = o.verdicts.indexOf(verdict) >= o.passIndex)], [index, verdict, password])
+            return this.fireEvent(['fail', 'pass'][+(this.passed = o.verdicts.indexOf(verdict) >= o.passIndex)], [index, verdict, password])
         },
 
         checks: [
@@ -225,16 +222,20 @@
                 score: 7
             },
             /* special chars */ {
-                re: /.[!,@,#,$,%,^,&,*,?,_,~]/,
+                re: /.[!@#$%^&*?_~]/,
                 score: 5
             },
             /* multiple special chars */ {
-                re: /(.*[!,@,#,$,%,^,&,*,?,_,~].*[!,@,#,$,%,^,&,*,?,_,~])/,
+                re: /(.*[!@#$%^&*?_~].*[!@#$%^&*?_~])/,
                 score: 7
             },
             /* all together now, does it look nice? */ {
-                re: /([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/,
+                re: /([a-zA-Z0-9].*[!@#$%^&*?_~])|([!@#$%^&*?_~].*[a-zA-Z0-9])/,
                 score: 3
+            },
+            /* password of a single char sucks */ {
+                re: /(.)\1+$/,
+                score: 2
             }
         ],
 

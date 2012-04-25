@@ -67,7 +67,32 @@ buster.testCase("Password meter tests > ", {
         this.pass.element.set('value', this.passes.barelyPass);
         this.pass.runPassword();
 
+    },
+
+    "Expect to check and pass on key events (Syn)": function(done) {
+        this.pass = new StrongPass('password', {
+            onPass: function() {
+                buster.assert(true);
+                done();
+            }
+        });
+
+        Syn.type('chelsea123', this.pass.element);
+
+    },
+
+    "Expect a banned password to fire an onBanned event": function(done) {
+        var banned = StrongPass.prototype.bannedPasswords.getRandom();
+
+        this.pass = new StrongPass('password', {
+            onBanned: function(pass) {
+                buster.assert.equals(pass, banned);
+                done();
+            }
+        });
+
+        this.pass.element.set('value', banned);
+        this.pass.runPassword();
     }
 
 });
-

@@ -3,7 +3,11 @@ StrongPass.js
 
 A basic plugin that can do `scoring` of password strength as a user types within an input field.
 
+![Screenshot](StrongPass.png)
+
 See it live in action on this jsfiddle [here](http://jsfiddle.net/dimitar/n8Dza/) or [this one](http://jsfiddle.net/dimitar/nZn6A/).
+
+[![endorse](http://api.coderwall.com/dimitarchristoff/endorsecount.png)](http://coderwall.com/dimitarchristoff)
 
 
 How to use

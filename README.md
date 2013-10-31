@@ -7,9 +7,8 @@ A basic plugin that can do `scoring` of password strength as a user types within
 
 See it live in action on this jsfiddle [here](http://jsfiddle.net/dimitar/n8Dza/) or [this one](http://jsfiddle.net/dimitar/nZn6A/).
 
-[![endorse](http://api.coderwall.com/dimitarchristoff/endorsecount.png)](http://coderwall.com/dimitarchristoff)
+[![endorse](http://api.coderwall.com/dimitarchristoff/endorsecount.png)](http://coderwall.com/dimitarchristoff) [![Build Status](https://secure.travis-ci.org/DimitarChristoff/StrongPass.png?branch=master)](http://travis-ci.org/DimitarChristoff/StrongPass)
 
-[![Build Status](https://secure.travis-ci.org/DimitarChristoff/StrongPass.png?branch=master)](http://travis-ci.org/DimitarChristoff/StrongPass)¬
 How to use
 ----------
 

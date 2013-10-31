@@ -161,23 +161,47 @@ Tests
 
 Via Buster.js, go to `test/index.html` to run.
 
-You can also test via node. To install buster:
+You can also test via node and Grunt. To install buster:
 
-	# npm install -g buster
+	$ npm install -g buster phantomjs
 
-To start the static tester:    
+To install locally:
 
-	# buster-static
+	$ npm install
+
+To test, either of these works (via PhantomJS):
+
+	$ npm test
+	$ grunt
 
 To start in capture mode for multiple browsers:
 
-	# buster-server &
+	$ buster-server &
 
 Once you have captured your target browsers, just run:
 
-	# buster-test
+	$ open http://localhost:1111/capture
+	$ buster-test -r specification
 
-More details on testing in `the tests/README.md`, including examples.
+Using under AMD
+---------------
+
+You can now just use RequireJS or Almond or similar to load the Class:
+
+```javascript
+	require(['js/StrongPass'], function(StrongPass){
+		new StrongPass({});
+	});
+
+	// or mixin / extend and do your own
+	define(['js/StrongPass'], function(StrongPass){
+		return new Class({
+			Extends: StrongPass,
+		});
+	});
+```
+
+If an AMD compatible `define` is found, it will be preferred to global object.
 
 License
 -------

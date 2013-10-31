@@ -9,7 +9,7 @@ See it live in action on this jsfiddle [here](http://jsfiddle.net/dimitar/n8Dza/
 
 [![endorse](http://api.coderwall.com/dimitarchristoff/endorsecount.png)](http://coderwall.com/dimitarchristoff)
 
-
+[![Build Status](https://secure.travis-ci.org/DimitarChristoff/StrongPass.png?branch=master)](http://travis-ci.org/DimitarChristoff/StrongPass)¬
 How to use
 ----------
 

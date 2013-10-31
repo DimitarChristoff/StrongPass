@@ -1,0 +1,10 @@
+before_script:
+  - sudo apt-get update -qq
+
+script:
+  - "npm test"
+
+language: node_js
+
+node_js:
+  - 0.8

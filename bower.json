@@ -1,0 +1,14 @@
+{
+  "name": "StrongPass",
+  "version": "1.0.3",
+  "main": ["src/StrongPass.js"],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "dist",
+    "README.md",
+    "bower.json",
+    "package.json"
+  ]
+}

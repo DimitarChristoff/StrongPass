@@ -1,0 +1,26 @@
+{
+  "name": "StrongPass",
+  "version": "1.0.2",
+  "description": "Checks password strength of a string",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DimitarChristoff/StrongPass"
+  },
+  "devDependencies": {
+    "buster": "~0.7.7",
+    "grunt-buster": "~0.3.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.7.0",
+    "growl": "~1.7.0"
+  },
+  "main": "src/StrongPass",
+  "author": "Dimitar Christoff <christoff@gmail.com> (https://twitter.com/D_mitar)",
+  "keywords": [
+    "password",
+    "strength"
+  ],
+  "license": "MIT (http://mootools.net/license.txt)",
+  "scripts": {
+    "test": "grunt"
+  }
+}

@@ -1,7 +1,9 @@
 {
   "name": "StrongPass",
   "version": "1.0.4",
-  "main": ["src/StrongPass.js"],
+  "main": [
+    "src/StrongPass.js"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
@@ -10,5 +12,16 @@
     "README.md",
     "bower.json",
     "package.json"
-  ]
+  ],
+  "homepage": "https://github.com/DimitarChristoff/StrongPass",
+  "authors": [
+    "DimitarChristoff <christoff@gmail.com>"
+  ],
+  "description": "Password Strength Checker for MooTools",
+  "keywords": [
+    "password",
+    "strength",
+    "meter"
+  ],
+  "license": "MIT"
 }

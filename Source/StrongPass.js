@@ -172,7 +172,7 @@ provides: StrongPass
 		createBox: function(){
 			//todo: should be templated
 			var o = this.options,
-					width = o.containerWidth || this.element.getSize().x;
+			    width = o.containerWidth || this.element.getSize().x;
 
 			this.stbox = new Element(o.passStrengthZen, {
 				styles: {

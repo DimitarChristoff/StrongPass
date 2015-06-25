@@ -171,8 +171,8 @@ provides: StrongPass
 		 */
 		createBox: function(){
 			//todo: should be templated
-			var width = this.element.getSize().x,
-				o = this.options;
+			var o = this.options,
+					width = o.containerWidth || this.element.getSize().x;
 
 			this.stbox = new Element(o.passStrengthZen, {
 				styles: {

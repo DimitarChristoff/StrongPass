@@ -7,11 +7,11 @@
     "url": "https://github.com/DimitarChristoff/StrongPass"
   },
   "devDependencies": {
-    "buster": "~0.7.7",
+    "buster": "~0.7.18",
     "grunt-buster": "~0.3.0",
     "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.7.0",
-    "growl": "~1.7.0"
+    "grunt-contrib-jshint": "~0.11.2",
+    "growl": "~1.8.1"
   },
   "main": "src/StrongPass",
   "author": "Dimitar Christoff <christoff@gmail.com> (https://twitter.com/D_mitar)",

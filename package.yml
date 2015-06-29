@@ -1,7 +1,7 @@
 name: StrongPass
 author: D_mitar
 category: Interface
-current: v1.0.4
+current: v1.0.5
 tags: [password, security, meter]
 docs: https://github.com/DimitarChristoff/StrongPass
 demo: http://jsfiddle.net/dimitar/n8Dza/

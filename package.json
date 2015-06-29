@@ -8,10 +8,11 @@
   },
   "devDependencies": {
     "buster": "~0.7.18",
-    "grunt-buster": "~0.3.0",
+    "growl": "~1.8.1",
     "grunt": "~0.4.1",
+    "grunt-buster": "~0.3.0",
     "grunt-contrib-jshint": "~0.11.2",
-    "growl": "~1.8.1"
+    "phantomjs": "~1.9.17"
   },
   "main": "src/StrongPass",
   "author": "Dimitar Christoff <christoff@gmail.com> (https://twitter.com/D_mitar)",

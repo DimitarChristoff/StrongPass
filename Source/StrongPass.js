@@ -145,7 +145,7 @@ provides: StrongPass
 		 */
 		initialize: function(element, options){
 			this.setOptions(options);
-			if (Array.isArray(options.bannedPasswords)) {
+			if (options && Array.isArray(options.bannedPasswords)) {
 				this.bannedPasswords = options.bannedPasswords;
 			}
 			this.element = document.id(element);

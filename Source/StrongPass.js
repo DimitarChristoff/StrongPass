@@ -145,6 +145,9 @@ provides: StrongPass
 		 */
 		initialize: function(element, options){
 			this.setOptions(options);
+			if (Array.isArray(options.bannedPasswords)) {
+				this.bannedPasswords = options.bannedPasswords;
+			}
 			this.element = document.id(element);
 			this.options.render && this.createBox();
 			this.attachEvents();
@@ -297,6 +300,12 @@ provides: StrongPass
 			return score;
 		}
 	});
+
+	if (!Array.isArray) {
+		Array.isArray = function(arg) {
+			return Object.prototype.toString.call(arg) === '[object Array]';
+		};
+	}
 
 	if (typeof define === 'function' && define.amd) {
 		// return an AMD module

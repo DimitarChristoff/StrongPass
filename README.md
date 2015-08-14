@@ -12,7 +12,7 @@ See it live in action on this jsfiddle [here](http://jsfiddle.net/dimitar/n8Dza/
 How to use
 ----------
 
-Get MooTools (1.4.5 ideally). No -more required. Have a password field and some CSS.
+Get MooTools (1.4.5+, ideally 1.5.1). No mootools-more required. Have a password field and some CSS.
 
 ```html
 
@@ -140,7 +140,7 @@ A series of tests and definitions dictate the total `scoring` of the string in t
 			re: /([a-zA-Z0-9].*[!@#$%^&*?_~])|([!@#$%^&*?_~].*[a-zA-Z0-9])/,
 			score: 3
 		},
-		/* password of a single char sucks */ {
+		/* password of a single repeated char sucks */ {
 			re: /(.)\1+$/,
 			score: 2
 		}

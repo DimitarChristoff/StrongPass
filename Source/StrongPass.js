@@ -92,7 +92,8 @@ provides: StrongPass
 		},
 
 		bannedPasswords: [
-			// see study here: http://smrt.io/JlNfrH
+			// see study here: 
+			//http://www.zdnet.com/article/top-25-passwords-overused-within-enterprises-password1-welcome-welcome1/
 			'123456',
 			'12345',
 			'123456789',
